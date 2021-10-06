@@ -10,12 +10,9 @@ module.exports = {
           message: 'No file uploaded'
         })
       } else {
-        const result = await faceApiService.detect(req.files.image.data)
+        const result = await faceApiService.detect(req.files.image.data, 'sameimage231.jpeg')
         res.status(200).json({
-          data: {
-              data: result,
-              number_faces: result.length
-          }
+          data: result
         })
       }
     } catch (e) {
